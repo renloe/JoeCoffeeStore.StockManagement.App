@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnotherClass.cs" />
     <Compile Include="Coffee.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
