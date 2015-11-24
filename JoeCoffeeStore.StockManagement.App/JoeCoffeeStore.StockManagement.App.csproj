@@ -63,10 +63,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Services\CoffeeDataService.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\ICoffeeDataService.cs" />
     <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="ViewModel\CoffeeDetailViewModel.cs" />
+    <Compile Include="ViewModel\CoffeeOverviewViewModel.cs" />
     <Compile Include="View\CoffeeDetailView.xaml.cs">
       <DependentUpon>CoffeeDetailView.xaml</DependentUpon>
     </Compile>
