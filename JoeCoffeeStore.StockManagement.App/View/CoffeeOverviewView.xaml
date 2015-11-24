@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:JoeCoffeeStore.StockManagement.App.View"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="CoffeeOverviewView" Height="300" Width="300">
+        Title="Joe's Coffee Store Stock Management" 
+                      Height="480" Width="640">
     <Grid>
         
     </Grid>

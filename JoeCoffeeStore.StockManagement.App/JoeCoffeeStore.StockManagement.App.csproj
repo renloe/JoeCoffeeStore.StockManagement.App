@@ -63,6 +63,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\CoffeeDataService.cs" />
+    <Compile Include="Services\ICoffeeDataService.cs" />
     <Compile Include="View\CoffeeOverviewView.xaml.cs">
       <DependentUpon>CoffeeOverviewView.xaml</DependentUpon>
     </Compile>
@@ -113,6 +115,16 @@
     <Resource Include="Images\coffee6.jpg" />
     <Resource Include="Images\coffee7.jpg" />
     <Resource Include="Images\coffee8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JoeCoffeeStore.StockManagement.DAL\JoeCoffeeStore.StockManagement.DAL.csproj">
+      <Project>{6b27c1c6-ad54-435f-a727-4f632eb40420}</Project>
+      <Name>JoeCoffeeStore.StockManagement.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JoeCoffeeStore.StockManagement.Model\JoeCoffeeStore.StockManagement.Model.csproj">
+      <Project>{613291d7-42db-4473-8795-94bc65709d37}</Project>
+      <Name>JoeCoffeeStore.StockManagement.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
