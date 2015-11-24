@@ -64,7 +64,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Services\CoffeeDataService.cs" />
+    <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\ICoffeeDataService.cs" />
+    <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="View\CoffeeDetailView.xaml.cs">
+      <DependentUpon>CoffeeDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CoffeeOverviewView.xaml.cs">
       <DependentUpon>CoffeeOverviewView.xaml</DependentUpon>
     </Compile>
@@ -72,6 +77,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\CoffeeDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CoffeeOverviewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
