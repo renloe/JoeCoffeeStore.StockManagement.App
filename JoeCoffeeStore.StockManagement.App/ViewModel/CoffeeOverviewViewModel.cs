@@ -1,5 +1,7 @@
 ﻿using JoeCoffeeStore.StockManagement.App.Extensions;
+using JoeCoffeeStore.StockManagement.App.Messages;
 using JoeCoffeeStore.StockManagement.App.Services;
+using JoeCoffeeStore.StockManagement.App.Utility;
 using JoeCoffeeStore.StockManagement.Model;
 using System;
 using System.Collections.Generic;
@@ -14,14 +16,9 @@ namespace JoeCoffeeStore.StockManagement.App.ViewModel
 {
     public class CoffeeOverviewViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         private ICoffeeDataService _coffeeDataService;
         private IDialogService _dialogService;
-
-        public CoffeeOverviewViewModel(ICoffeeDataService coffeeDataService, IDialogService dialogService)
-        {
-            _coffeeDataService = coffeeDataService;
-            _dialogService = dialogService;
-        }
 
         private ObservableCollection<Coffee> _coffees;
         public ObservableCollection<Coffee> Coffees
@@ -53,8 +50,6 @@ namespace JoeCoffeeStore.StockManagement.App.ViewModel
 
         public ICommand EditCommand { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public void RaisePropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
@@ -63,7 +58,44 @@ namespace JoeCoffeeStore.StockManagement.App.ViewModel
             }
         }
 
-        private void Load()
+        public CoffeeOverviewViewModel(ICoffeeDataService coffeeDataService, IDialogService dialogService)
+        {
+            _coffeeDataService = coffeeDataService;
+            _dialogService = dialogService;
+
+            LoadData();
+            LoadCommands();
+
+            Messenger.Default.Register<UpdateListMessage>(this, OnUpdateListMessageReceived);
+        }
+
+        private void LoadCommands()
+        {
+            EditCommand = new CustomCommand(EditCoffee, CanEditCoffee);
+        }
+
+        private void OnUpdateListMessageReceived(UpdateListMessage obj)
+        {
+            LoadData();
+            _dialogService.CloseDetailDialog();
+        }
+
+        private void EditCoffee(object obj)
+        {
+            Messenger.Default.Send<Coffee>(_selectedCoffee);
+            _dialogService.ShowDetailDialog();
+        }
+
+        private bool CanEditCoffee(object obj)
+        {
+            if (SelectedCoffee != null)
+            {
+                return true;
+            }
+            return false;
+        }      
+
+        private void LoadData()
         {
             _coffees = _coffeeDataService.GetAllCoffees().ToObservableCollection();
         }

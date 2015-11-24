@@ -64,10 +64,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Messages\UpdateListMessage.cs" />
     <Compile Include="Services\CoffeeDataService.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\ICoffeeDataService.cs" />
     <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="Utility\CustomCommand.cs" />
+    <Compile Include="Utility\Messenger.cs" />
     <Compile Include="ViewModel\CoffeeDetailViewModel.cs" />
     <Compile Include="ViewModel\CoffeeOverviewViewModel.cs" />
     <Compile Include="View\CoffeeDetailView.xaml.cs">
